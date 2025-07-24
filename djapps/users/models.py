@@ -12,12 +12,20 @@ class BaseModel(models.Model):
         abstract = True
         
 class CustomUser(AbstractUser, BaseModel):
-    username = models.CharField(max_length=150, unique=True)
-    email = models.EmailField(_('email_address'),unique=True)
-    first_name = models.CharField(max_length=30, blank=True)
-    last_name = models.CharField(max_length=30, blank=True)
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
+    """Custom user model that extends AbstractUser and BaseModel.
+
+    Args:
+        AbstractUser (_type_): Django's built-in user model.
+        BaseModel (_type_): A base model that includes created_at and updated_at fields.
+
+    Returns:
+        _type_: A custom user model with additional fields.
+    """
+    # TODO : Modify the phone field to allow max_length of 15 characters. use phone_number_field package
+    # from phone_number_field import PhoneNumberField
+    # phone_number = PhoneNumberField(_("user's phone number"), null=True, blank=True)
+    # For simplicity, we will use a CharField for now.
+    phone_number = models.CharField(_("user's phone number"), max_length=50, null=True, blank=True)
     
 
     def __str__(self):
