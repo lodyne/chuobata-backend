@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "djapps.skills",
     "djapps.users",
+    "schema_viewer",
 ]
 
 MIDDLEWARE = [
