@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
+from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
 
@@ -21,16 +22,14 @@ class CustomUser(AbstractUser, BaseModel):
     Returns:
         _type_: A custom user model with additional fields.
     """
-    # TODO : Modify the phone field to allow max_length of 15 characters. use phone_number_field package
-    # from phone_number_field import PhoneNumberField
-    # phone_number = PhoneNumberField(_("user's phone number"), null=True, blank=True)
-    # For simplicity, we will use a CharField for now.
-    phone_number = models.CharField(_("user's phone number"), max_length=50, null=True, blank=True)
     
+    phone_number = PhoneNumberField(_("user's phone number"), max_length=15, null=True, blank=True)
 
+    
     def __str__(self):
         return self.username
 
     class Meta:
+        db_table = "learner"
         verbose_name = "Custom User"
         verbose_name_plural = "Custom Users"
