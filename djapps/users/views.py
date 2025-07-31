@@ -52,6 +52,7 @@ def register(request):
     template_name = 'users/register.html'
     if request.method == 'POST':
         form = RegisterForm(request.POST)
+        print(form)
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
