@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "schema_viewer",
     "crispy_forms",
     "crispy_bootstrap5",
+    "rest_framework",
     # Django allauth
     "django.contrib.sites",
     "allauth",
