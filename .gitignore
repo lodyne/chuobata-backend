@@ -213,6 +213,6 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-.vscode
+.vscode/
 
 .DS_Store
